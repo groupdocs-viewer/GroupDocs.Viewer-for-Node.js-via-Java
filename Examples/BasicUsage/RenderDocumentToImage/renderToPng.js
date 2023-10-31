@@ -1,14 +1,15 @@
+async function renderToPng(groupdocs, inputFilePath) {
+  const viewer = new groupdocs.viewer.Viewer(inputFilePath);
 
-async function renderToPng(groupdocs, inputFilePath){
+  const outputPath = `${groupdocs.outputFolder}/renderToPng.png`;
+  const viewOptions = new groupdocs.viewer.PngViewOptions(outputPath);
 
-  const viewer = new groupdocs.viewer.Viewer(inputFilePath)
+  const view = viewer.view(viewOptions);
+  console.log(
+    `\nSource document rendered successfully.\nCheck output in ${outputPath}`
+  );
 
-  const outputPath = `${groupdocs.outputFolder}/output-to-png.png`
-  const viewOptions = new groupdocs.viewer.PngViewOptions(outputPath)
-
-  console.log(`\nSource document rendered successfully.\nCheck output in ${outputPath}`)
-  return viewer.view(viewOptions)
+  return view;
 }
-  
-module.exports = renderToPng
-  
+
+module.exports = renderToPng;

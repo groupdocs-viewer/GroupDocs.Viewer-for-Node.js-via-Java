@@ -1,15 +1,18 @@
+async function enableFontHinting(groupdocs, inputFilePath) {
+  const viewer = new groupdocs.viewer.Viewer(inputFilePath);
 
-async function enableFontHinting(groupdocs, inputFilePath){
+  const outputFolder = `${groupdocs.outputFolder}/enableFontHinting`;
+  const outputPath = `${outputFolder}/page_{0}.png`;
+  const viewOptions = new groupdocs.viewer.PngViewOptions(outputPath);
 
-  const viewer = new groupdocs.viewer.Viewer(inputFilePath)
-
-  const outputPath = `${groupdocs.outputFolder}/page_{0}.png`
-  const viewOptions = new groupdocs.viewer.PngViewOptions(outputPath)
-  
   viewOptions.getPdfOptions().setEnableFontHinting(true);
 
-  console.log(`\nSource document rendered successfully.\nCheck output in ${outputPath}`)
-  return viewer.view(viewOptions, 1)
+  const view = viewer.view(viewOptions);
+  console.log(
+    `\nSource document rendered successfully.\nCheck output in ${outputFolder}`
+  );
+
+  return view;
 }
-  
-module.exports = enableFontHinting
+
+module.exports = enableFontHinting;

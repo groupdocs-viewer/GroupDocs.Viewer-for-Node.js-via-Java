@@ -1,14 +1,15 @@
+async function renderToJPG(groupdocs, inputFilePath) {
+  const viewer = new groupdocs.viewer.Viewer(inputFilePath);
 
-async function renderToJPG(groupdocs, inputFilePath){
+  const outputPath = `${groupdocs.outputFolder}/renderToJPG.jpg`;
+  const viewOptions = new groupdocs.viewer.JpgViewOptions(outputPath);
 
-  const viewer = new groupdocs.viewer.Viewer(inputFilePath)
+  const view = viewer.view(viewOptions);
+  console.log(
+    `\nSource document rendered successfully.\nCheck output in ${outputPath}`
+  );
 
-  const outputPath = `${groupdocs.outputFolder}/output-to-jpg.jpg`
-  const viewOptions = new groupdocs.viewer.JpgViewOptions(outputPath)
-
-  console.log(`\nSource document rendered successfully.\nCheck output in ${outputPath}`)
-  return viewer.view(viewOptions)
+  return view;
 }
-  
-module.exports = renderToJPG
-  
+
+module.exports = renderToJPG;

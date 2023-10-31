@@ -1,12 +1,8 @@
+async function getViewInfoForPdfDocument(groupdocs, inputFilePath) {
+  const viewer = new groupdocs.viewer.Viewer(inputFilePath);
 
-async function getViewInfoForPdfDocument(groupdocs, inputFilePath){
-
-  const viewer = new groupdocs.viewer.Viewer(inputFilePath)
-
-
-  const viewOptions = groupdocs.viewer.ViewInfoOptions.forHtmlView()
-  
-  const viewInfo =  viewer.getViewInfo(viewOptions)
+  const viewOptions = groupdocs.viewer.ViewInfoOptions.forHtmlView();
+  const viewInfo = viewer.getViewInfo(viewOptions);
 
   console.log("Document type is: " + viewInfo.getFileType());
   console.log("Pages count: " + viewInfo.getPages().size());
@@ -14,6 +10,5 @@ async function getViewInfoForPdfDocument(groupdocs, inputFilePath){
 
   console.log("\nView info retrieved successfully.");
 }
-  
-module.exports = getViewInfoForPdfDocument
-  
+
+module.exports = getViewInfoForPdfDocument;

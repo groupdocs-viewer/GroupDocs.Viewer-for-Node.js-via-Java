@@ -1,17 +1,16 @@
+async function renderToHtmlWithEmbeddedResources(groupdocs, inputFilePath) {
+  const viewer = new groupdocs.viewer.Viewer(inputFilePath);
 
+  const outputPath = `${groupdocs.outputFolder}/renderToHtmlWithEmbeddedResources.html`;
+  const viewOptions =
+    groupdocs.viewer.HtmlViewOptions.forEmbeddedResources(outputPath);
 
-async function renderToHtmlWithEmbeddedResources(groupdocs, inputFilePath){
+  const view = viewer.view(viewOptions);
+  console.log(
+    `\nSource document rendered successfully.\nCheck output in ${outputPath}`
+  );
 
-    const viewer = new groupdocs.viewer.Viewer(inputFilePath)
-  
-    const outputPath = `${groupdocs.outputFolder}/output-with-embed.html`
-    const viewOptions = groupdocs.viewer.HtmlViewOptions.forEmbeddedResources(outputPath)
+  return view;
+}
 
-
-    console.log(`\nSource document rendered successfully.\nCheck output in ${outputPath}`)
-    return viewer.view(viewOptions)
-  }
-    
-  module.exports = renderToHtmlWithEmbeddedResources
-    
-  
+module.exports = renderToHtmlWithEmbeddedResources;

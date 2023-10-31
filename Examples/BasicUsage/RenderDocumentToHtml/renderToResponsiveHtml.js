@@ -1,17 +1,18 @@
+async function renderToResponsiveHtml(groupdocs, inputFilePath) {
+  const viewer = new groupdocs.viewer.Viewer(inputFilePath);
 
-async function renderToResponsiveHtml(groupdocs, inputFilePath){
+  const outputPath = `${groupdocs.outputFolder}/renderToResponsiveHtml.html`;
+  const viewOptions =
+    groupdocs.viewer.HtmlViewOptions.forEmbeddedResources(outputPath);
 
-    const viewer = new groupdocs.viewer.Viewer(inputFilePath)
-  
-    const outputPath = `${groupdocs.outputFolder}/output-responsive.html`
-    const viewOptions = groupdocs.viewer.HtmlViewOptions.forEmbeddedResources(outputPath)
+  viewOptions.setRenderResponsive(true);
 
-    viewOptions.setRenderResponsive(true)
+  const view = viewer.view(viewOptions);
+  console.log(
+    `\nSource document rendered successfully.\nCheck output in ${outputPath}`
+  );
 
-    console.log(`\nSource document rendered successfully.\nCheck output in ${outputPath}`)
-    return viewer.view(viewOptions)
-  }
-    
-  module.exports = renderToResponsiveHtml
-    
-  
+  return view;
+}
+
+module.exports = renderToResponsiveHtml;

@@ -1,17 +1,17 @@
+async function setImageSizeLimits(groupdocs, inputFilePath) {
+  const viewer = new groupdocs.viewer.Viewer(inputFilePath);
 
-async function setImageSizeLimits(groupdocs, inputFilePath){
+  const outputPath = `${groupdocs.outputFolder}/setImageSizeLimits.jpg`;
+  const viewOptions = new groupdocs.viewer.JpgViewOptions(outputPath);
 
-  const viewer = new groupdocs.viewer.Viewer(inputFilePath)
+  viewOptions.setMaxWidth(400);
 
-  const outputPath = `${groupdocs.outputFolder}/result_image_size_limit.jpg`
-  const viewOptions = new groupdocs.viewer.JpgViewOptions(outputPath)
+  const view = viewer.view(viewOptions);
+  console.log(
+    `\nSource document rendered successfully.\nCheck output in ${outputPath}`
+  );
 
-  
-  viewOptions.setMaxWidth(400)
-
-  console.log(`\nSource document rendered successfully.\nCheck output in ${outputPath}`)
-  return viewer.view(viewOptions)
+  return view;
 }
-  
-module.exports = setImageSizeLimits
-  
+
+module.exports = setImageSizeLimits;

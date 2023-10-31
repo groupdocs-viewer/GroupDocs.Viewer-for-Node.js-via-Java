@@ -1,15 +1,10 @@
-
 async function checkFileIsEncrypted(groupdocs, inputFilePath) {
-
-    const viewer = new groupdocs.viewer.Viewer(inputFilePath)
-    const fileInfo = viewer.getFileInfo();
-   
+  const viewer = new groupdocs.viewer.Viewer(inputFilePath);
   
-    console.log("File type is: " + fileInfo.getFileType())
-    console.log("File encrypted: " + fileInfo.isEncrypted())
+  const fileInfo = viewer.getFileInfo();
 
-  }
-    
-  module.exports = checkFileIsEncrypted
-    
-  
+  console.log("File type is: " + fileInfo.getFileType());
+  console.log("File encrypted: " + fileInfo.isEncrypted());
+}
+
+module.exports = checkFileIsEncrypted;

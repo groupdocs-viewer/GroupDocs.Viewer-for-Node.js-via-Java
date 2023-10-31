@@ -12,7 +12,7 @@ View PDF, DOC, PPT, ODT, OTT, ODP among [many other documents](https://docs.grou
 
 Directory | Description
 --------- | -----------
-[Examples]([Examples](https://github.com/groupdocs-viewer/GroupDocs.Viewer-for-Node.js-via-Java/tree/master/Examples)  | Node.js examples and sample documents for you to get started quickly.
+[Examples](https://github.com/groupdocs-viewer/GroupDocs.Viewer-for-Node.js-via-Java/tree/master/Examples)  | Node.js examples and sample documents for you to get started quickly.
 
 
 ## Node.js Viewer API Features 
@@ -41,6 +41,17 @@ GroupDocs hosts all Java APIs on [GroupDocs Artifact Repository](https://artifac
 From the command line:
 
 	npm install @groupdocs/groupdocs.viewer
+
+### Run Examples
+
+Change directory to Examples:
+
+	cd Examples
+
+Run runExamles.js:
+
+	node runExamples.js
+
 
 ## View DOCX As Responsive HTML using Node.js
 

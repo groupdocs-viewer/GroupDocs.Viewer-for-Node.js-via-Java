@@ -1,19 +1,29 @@
+async function renderWithCustomFonts(
+  groupdocs,
+  inputFilePath,
+  fontsFolderPath
+) {
+  const searchOptions = groupdocs.viewer.SearchOption.TOP_FOLDER_ONLY;
+  const fontSource = new groupdocs.viewer.FolderFontSource(
+    fontsFolderPath,
+    searchOptions
+  );
+  const fontSettings = groupdocs.viewer.FontSettings;
+  fontSettings.setFontSources(fontSource);
 
-async function renderWithCustomFonts(groupdocs, inputFilePath, fontPath) {
+  const viewer = new groupdocs.viewer.Viewer(inputFilePath);
 
-  const searchOptions = groupdocs.viewer.SearchOption.TOP_FOLDER_ONLY
-  const fontSettings = groupdocs.viewer.FontSettings
-  const fontSource = new groupdocs.viewer.FolderFontSource(fontPath, searchOptions)
-  const viewer = new groupdocs.viewer.Viewer(inputFilePath)
+  const outputFolder = `${groupdocs.outputFolder}/renderWithCustomFonts`;
+  const outputPath = `${outputFolder}/page_{0}.html`;
+  const viewOptions =
+    groupdocs.viewer.HtmlViewOptions.forEmbeddedResources(outputPath);
 
-  fontSettings.setFontSources(fontSource)
+  const view = viewer.view(viewOptions);
+  console.log(
+    `\nSource document rendered successfully.\nCheck output in ${outputFolder}`
+  );
 
-  const outputPath = `${groupdocs.outputFolder}/renderCustomFonts/page_{0}.html`
-  const viewOptions = groupdocs.viewer.HtmlViewOptions.forEmbeddedResources(outputPath)
-
-  console.log(`\nSource document rendered successfully.\nCheck output in ${outputPath}`)
-  return viewer.view(viewOptions)
+  return view;
 }
-  
-module.exports = renderWithCustomFonts
-  
+
+module.exports = renderWithCustomFonts;

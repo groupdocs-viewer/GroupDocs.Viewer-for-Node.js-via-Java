@@ -1,17 +1,17 @@
+async function excludingFontsFromOutputHtml(groupdocs, inputFilePath) {
+  const viewer = new groupdocs.viewer.Viewer(inputFilePath);
 
+  const outputPath = `${groupdocs.outputFolder}/excludingFontsFromOutputHtml.html`;
+  const viewOptions =
+    groupdocs.viewer.HtmlViewOptions.forEmbeddedResources(outputPath);
+  viewOptions.getFontsToExclude().add("Arial");
 
-async function excludingFontsFromOutputHtml(groupdocs, inputFilePath){
+  const view = viewer.view(viewOptions);
+  console.log(
+    `\nSource document rendered successfully.\nCheck output in ${outputPath}`
+  );
 
-    const viewer = new groupdocs.viewer.Viewer(inputFilePath)
-  
-    const outputPath = `${groupdocs.outputFolder}/output-fonts.html`
-    const viewOptions = groupdocs.viewer.HtmlViewOptions.forEmbeddedResources(outputPath)
-    viewOptions.getFontsToExclude().add("Arial");
+  return view;
+}
 
-    console.log(`\nSource document rendered successfully.\nCheck output in ${outputPath}`)
-    return viewer.view(viewOptions)
-  }
-    
-  module.exports = excludingFontsFromOutputHtml
-    
-  
+module.exports = excludingFontsFromOutputHtml;

@@ -1,15 +1,17 @@
-
 async function renderSelectedPages(groupdocs, inputFilePath) {
+  const viewer = new groupdocs.viewer.Viewer(inputFilePath);
 
-    const viewer = new groupdocs.viewer.Viewer(inputFilePath)
-  
-    const outputPath = `${groupdocs.outputFolder}/page-selected.html`
-    const viewOptions = groupdocs.viewer.HtmlViewOptions.forEmbeddedResources(outputPath)
-  
-    console.log(`\nSource document rendered successfully.\nCheck output in ${outputPath}`)
-    return viewer.view(viewOptions, 1, 3)
-  }
-    
-  module.exports = renderSelectedPages
-    
-  
+  const outputFolder = `${groupdocs.outputFolder}/renderSelectedPages`;
+  const outputPath = `${outputFolder}/page_{0}.html`;
+  const viewOptions =
+    groupdocs.viewer.HtmlViewOptions.forEmbeddedResources(outputPath);
+
+  const view = viewer.view(viewOptions);
+  console.log(
+    `\nSource document rendered successfully.\nCheck output in ${outputFolder}`
+  );
+
+  return view;
+}
+
+module.exports = renderSelectedPages;
