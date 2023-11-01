@@ -1,0 +1,21 @@
+{
+  "name": "groupdocs.viewer-for-node.js-via-java",
+  "version": "23.10.0",
+  "description": "GroupDocs.Viewer for Node.js via Java examples, plugins and showcase projects",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/groupdocs-viewer/GroupDocs.Viewer-for-Node.js-via-Java.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/groupdocs-viewer/GroupDocs.Viewer-for-Node.js-via-Java/issues"
+  },
+  "homepage": "https://github.com/groupdocs-viewer/GroupDocs.Viewer-for-Node.js-via-Java#readme",
+  "dependencies": {
+    "@groupdocs/groupdocs.viewer": "23.10.0"
+  }
+}
