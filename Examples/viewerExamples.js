@@ -102,6 +102,10 @@ const renderingFodgAndOdg = require('./AdvancedUsage/Rendering/RenderingOptionsB
 const renderingCf2 = require('./AdvancedUsage/Rendering/RenderingOptionsByDocumentType/RenderingCadDrawings/renderingCf2')
 const renderingPlt = require('./AdvancedUsage/Rendering/RenderingOptionsByDocumentType/RenderingCadDrawings/renderingPlt')
 const renderingPstAndOst = require('./AdvancedUsage/Rendering/RenderingOptionsByDocumentType/RenderingCadDrawings/renderingPstAndOst')
+const renderingArchivesToMultipleAndSinglePagesHtml = require('./AdvancedUsage/Rendering/RenderingOptionsByDocumentType/RenderingArchiveFiles/renderingArchivesToMultipleAndSinglePagesHtml')
+const specifyFilenameWhenRenderingArchiveFiles = require('./AdvancedUsage/Rendering/RenderingOptionsByDocumentType/RenderingArchiveFiles/specifyFilenameWhenRenderingArchiveFiles')
+const renameEmailFields = require('./AdvancedUsage/Rendering/RenderingOptionsByDocumentType/RenderingEmailMessages/renameEmailFields')
+const renderingRar = require('./AdvancedUsage/Rendering/RenderingOptionsByDocumentType/RenderingArchiveFiles/renderingRar')
 
 const loadDocumentsWithCharset = require('./AdvancedUsage/Loading/loadDocumentsWithCharset')
 const loadDocumentsWithEncoding = require('./AdvancedUsage/Loading/loadDocumentsWithEncoding')
@@ -641,7 +645,22 @@ class ViewerExamples {
   }
 
 
+  async renderingArchivesToMultipleAndSinglePagesHtml(inputFilePath = ''){
+    return renderingArchivesToMultipleAndSinglePagesHtml(this, inputFilePath || this.inputFiles.sampleRarWithFolders)
+  }
+
+  async specifyFilenameWhenRenderingArchiveFiles(inputFilePath = ''){
+    return specifyFilenameWhenRenderingArchiveFiles(this, inputFilePath || this.inputFiles.sampleZip)
+  }
+
+  async renameEmailFields(inputFilePath = ''){
+    return renameEmailFields(this, inputFilePath || this.inputFiles.sampleMsg)
+  }
   
+  async renderingRar(inputFilePath = ''){
+    return renderingRar(this, inputFilePath || this.inputFiles.sampleRarWithFolders)
+  }
+
 }
 
 module.exports = new ViewerExamples()

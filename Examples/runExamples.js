@@ -61,10 +61,15 @@ const examples = require('./viewerExamples')
       // // Rendering Archive Files
       examples.getViewInfoForArchiveFile(),
       examples.renderArchiveFolder(),
+      examples.renderingArchivesToMultipleAndSinglePagesHtml(),
+      examples.specifyFilenameWhenRenderingArchiveFiles(),
+      examples.renderingRar(),
 
       // // Rendering Email Messages
       examples.adjustPageSize(),
       examples.dateTimeFormatAndTimeZoneOffset(),
+      examples.renameEmailFields(),
+
 
       // // Rendering Image Files
       examples.renderingAi(),
