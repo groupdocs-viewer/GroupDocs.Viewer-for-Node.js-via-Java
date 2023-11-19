@@ -1,9 +1,10 @@
+require('dotenv').config()
 const path = require("path");
 const SamplePath = path.join(__dirname, "./Resources/SampleFiles");
 const FontsFolderPath = path.join(__dirname, "./Resources/Fonts");
 
 module.exports = {
-  LicensePath: '',
+  LicensePath: process.env.PATH_TO_LICS + process.env.PRODUCT_LIC,
   SamplePath,
   FontsFolderPath,
   OutputPath: path.join(__dirname, "Output"),
