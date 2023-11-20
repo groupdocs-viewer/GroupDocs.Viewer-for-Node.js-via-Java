@@ -172,6 +172,7 @@ class ViewerExamples {
 
       // Project Management documents
       sampleMpp: Constants.SAMPLE_MPP,
+      
       // Visio files
       sampleVisio: Constants.SAMPLE_VISIO,
 
@@ -190,7 +191,6 @@ class ViewerExamples {
       fourPagesXlsx: Constants.FOUR_PAGES_XLSX,
 
       // Word Processing documents
-
       sampleDocx: Constants.SAMPLE_DOCX,      
       sampleDocxWithComment: Constants.SAMPLE_DOCX_WITH_COMMENT,
       sampleDocxWithPassword: Constants.SAMPLE_DOCX_WITH_PASSWORD,
@@ -262,8 +262,7 @@ class ViewerExamples {
   
   async renderSelectedPages(inputFilePath = '') {
     return renderSelectedPages(this, inputFilePath || this.inputFiles.sampleDocx)
-  }
-  
+  }  
   
   async renderToPdf(inputFilePath = '') {
     return renderToPdf(this, inputFilePath || this.inputFiles.sampleDocx)
@@ -276,11 +275,11 @@ class ViewerExamples {
   async renderToJPG(inputFilePath = '') {
     return renderToJPG(this, inputFilePath || this.inputFiles.sampleDocx)
   }
-
   
   async renderToPng(inputFilePath = '') {
     return renderToPng(this, inputFilePath || this.inputFiles.sampleDocx)
   }
+
   async renderToHtmlWithExternalResources(inputFilePath = '') {
     return renderToHtmlWithExternalResources(this, inputFilePath || this.inputFiles.sampleDocx)
   }
@@ -609,8 +608,6 @@ class ViewerExamples {
     return renderingPstAndOst(this, inputFilePath || this.inputFiles.samplePst)
   }
 
-
-
   async loadDocumentsWithCharset(inputFilePath = ''){
     return loadDocumentsWithCharset(this, inputFilePath || this.inputFiles.sampleTxtShiftJsEncoded)
   }
@@ -630,8 +627,7 @@ class ViewerExamples {
   async specifyFileTypeWhenLoadingDocument(inputFilePath = ''){
     return specifyFileTypeWhenLoadingDocument(this, inputFilePath || this.inputFiles.sampleDocx)
   }
-  
-  
+    
   async loadDocumentFromLocalDisk(inputFilePath = ''){
     return loadDocumentFromLocalDisk(this, inputFilePath || this.inputFiles.sampleDocx)
   }
