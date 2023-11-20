@@ -1,6 +1,6 @@
 {
   "name": "groupdocs.viewer-for-node.js-via-java",
-  "version": "1.0.0",
+  "version": "23.10.0",
   "description": "GroupDocs.Viewer for-Node.js-via-Java is a [Document Viewer API](https://products.groupdocs.com/viewer/java) for Java developers. It supports over 170 document types from popular categories such as Microsoft Office, OpenOffice, AutoCAD, Photoshop, Visio, images, metafiles, programming, archives, messages, PDF & more.",
   "main": "index.js",
   "scripts": {
