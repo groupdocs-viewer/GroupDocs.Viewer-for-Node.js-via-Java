@@ -1,3 +1,5 @@
+const java = require('java')
+const Color = java.import('java.awt.Color')
 /**
  * This example demonstrates how to adjust output image size when rendering CAD drawings.
  */
@@ -8,7 +10,7 @@ async function setImageBackgroundColor(groupdocs, inputFilePath) {
   const outputPath = `${outputFolder}/page_{0}.png`
   const viewOptions = new groupdocs.viewer.PngViewOptions(outputPath)
   viewOptions.setCadOptions(groupdocs.viewer.CadOptions.forRenderingByWidth(800));
-  viewOptions.getCadOptions().setBackgroundColor("RED");
+  viewOptions.getCadOptions().setBackgroundColor(Color.red);
 
   const view = viewer.view(viewOptions);
   console.log(
