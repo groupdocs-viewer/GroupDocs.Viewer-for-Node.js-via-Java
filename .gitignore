@@ -3,3 +3,4 @@
 /Examples/.env
 .DS_Store
 .env
+.npmrc

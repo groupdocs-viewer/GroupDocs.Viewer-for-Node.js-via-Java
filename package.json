@@ -1,6 +1,6 @@
 {
   "name": "groupdocs.viewer-for-node.js-via-java",
-  "version": "23.12.0",
+  "version": "24.2.1",
   "description": "GroupDocs.Viewer for Node.js via Java examples, plugins and showcase projects",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,7 +16,7 @@
   },
   "homepage": "https://github.com/groupdocs-viewer/GroupDocs.Viewer-for-Node.js-via-Java#readme",
   "dependencies": {
-    "@groupdocs/groupdocs.viewer": "23.12.0",
+    "@groupdocs/groupdocs.viewer": "24.2.1",
     "dotenv": "^16.3.1"
   }
 }
