@@ -8,7 +8,7 @@ const examples = require('./viewerExamples')
     
     await examples.setLicenseFromFile()
     //await examples.setLicenseFromStream() 
-    
+
     await Promise.all([
       
       // Basic usage
@@ -156,6 +156,13 @@ const examples = require('./viewerExamples')
      examples.loadDocumentFromLocalDisk(),
      examples.loadDocumentFromStream(),
      examples.loadDocumentFromUrl(), 
+
+     // HowTo
+     examples.howToDetermineFileType.fromFileExtension(),
+     examples.howToDetermineFileType.fromMediaType(),
+     examples.howToDetermineFileType.fromStream(),
+     examples.howToLogging.toConsole(),
+     examples.howToLogging.toFile(),
     ])
     console.log('The end of process.')
     process.exit(0)
