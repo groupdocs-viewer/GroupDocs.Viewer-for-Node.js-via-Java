@@ -4,17 +4,17 @@ const fs = require('fs')
  */
 
 async function fromFileExtension(groupdocs) {
-    const extension = ".docx";
-    const fileType = groupdocs.viewer.FileType.fromExtension(extension);
+    const extension = ".docx"
+    const fileType = groupdocs.viewer.FileType.fromExtension(extension)
 
-    console.log("\nExtension " + extension + "; File type: " + fileType);
+    console.log("\nExtension " + extension + " File type: " + fileType)
 }
 
 async function fromMediaType(groupdocs) {
-    const mediaType = "application/pdf";
-    const fileType = groupdocs.viewer.FileType.fromMediaType(mediaType);
+    const mediaType = "application/pdf"
+    const fileType = groupdocs.viewer.FileType.fromMediaType(mediaType)
 
-    console.log("\nMedia-type " + mediaType + "; File type: " + fileType);
+    console.log("\nMedia-type " + mediaType + " File type: " + fileType)
 }
 
 async function fromStream(groupdocs, sampleDocx) {
@@ -22,7 +22,7 @@ async function fromStream(groupdocs, sampleDocx) {
     const inputStream = await groupdocs.viewer.readDataFromStream(stream)   
     const fileType = groupdocs.viewer.FileType.fromStream(inputStream)
 
-    console.log("\nFile path: " + sampleDocx + "; File type: " + fileType)
+    console.log("\nFile path: " + sampleDocx + " File type: " + fileType)
 }
 
 module.exports = {

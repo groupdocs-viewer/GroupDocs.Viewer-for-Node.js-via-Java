@@ -115,7 +115,9 @@ const specifyFileTypeWhenLoadingDocument = require('./AdvancedUsage/Loading/spec
 const loadDocumentFromLocalDisk = require('./AdvancedUsage/Loading/LoadingDocumentsFromDifferentSources/loadDocumentFromLocalDisk')
 const loadDocumentFromStream = require('./AdvancedUsage/Loading/LoadingDocumentsFromDifferentSources/loadDocumentFromStream')
 const loadDocumentFromUrl = require('./AdvancedUsage/Loading/LoadingDocumentsFromDifferentSources/loadDocumentFromUrl')
+
 const howToDetermineFileType = require('./HowTo/howToDetermineFileType')
+const howToLogging = require('./HowTo/howToLogging')
 class ViewerExamples {
   constructor() {
     // Initialize the License
@@ -129,14 +131,18 @@ class ViewerExamples {
     // Initialize files
     this.initializeInputFiles()
     this.initializeOutputFolder()
-    this.initializeFileType()
+    this.initializeHowToMethods()
   }
 
-  initializeFileType () {
+  initializeHowToMethods () {
     this.howToDetermineFileType = {
       fromFileExtension: async () => howToDetermineFileType.fromFileExtension(this),
       fromMediaType: async () => howToDetermineFileType.fromMediaType(this),
       fromStream: async () => howToDetermineFileType.fromStream(this, this.inputFiles.sampleDocx)
+    }
+    this.howToLogging = {
+      toConsole: async () => howToLogging.toConsole(this, this.inputFiles.samplePdf),
+      toFile: async () => howToLogging.toFile(this, this.inputFiles.samplePdf)
     }
   }
   initializeInputFiles() {
