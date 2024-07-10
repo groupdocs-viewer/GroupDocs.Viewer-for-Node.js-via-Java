@@ -156,6 +156,12 @@ const examples = require('./viewerExamples')
      examples.loadDocumentFromLocalDisk(),
      examples.loadDocumentFromStream(),
      examples.loadDocumentFromUrl(), 
+
+     // HowTo
+     examples.howToDetermineFileType.fromFileExtension(),
+     examples.howToDetermineFileType.fromMediaType(),
+     examples.howToDetermineFileType.fromStream(),
+     
     ])
     console.log('The end of process.')
     process.exit(0)

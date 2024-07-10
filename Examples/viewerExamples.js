@@ -115,6 +115,7 @@ const specifyFileTypeWhenLoadingDocument = require('./AdvancedUsage/Loading/spec
 const loadDocumentFromLocalDisk = require('./AdvancedUsage/Loading/LoadingDocumentsFromDifferentSources/loadDocumentFromLocalDisk')
 const loadDocumentFromStream = require('./AdvancedUsage/Loading/LoadingDocumentsFromDifferentSources/loadDocumentFromStream')
 const loadDocumentFromUrl = require('./AdvancedUsage/Loading/LoadingDocumentsFromDifferentSources/loadDocumentFromUrl')
+const howToDetermineFileType = require('./HowTo/howToDetermineFileType')
 class ViewerExamples {
   constructor() {
     // Initialize the License
@@ -128,8 +129,16 @@ class ViewerExamples {
     // Initialize files
     this.initializeInputFiles()
     this.initializeOutputFolder()
+    this.initializeFileType()
   }
 
+  initializeFileType () {
+    this.howToDetermineFileType = {
+      fromFileExtension: async () => howToDetermineFileType.fromFileExtension(this),
+      fromMediaType: async () => howToDetermineFileType.fromMediaType(this),
+      fromStream: async () => howToDetermineFileType.fromStream(this, this.inputFiles.sampleDocx)
+    }
+  }
   initializeInputFiles() {
     this.inputFiles = {
       sampleZip: Constants.SAMPLE_ZIP,
@@ -658,5 +667,4 @@ class ViewerExamples {
   }
 
 }
-
 module.exports = new ViewerExamples()
