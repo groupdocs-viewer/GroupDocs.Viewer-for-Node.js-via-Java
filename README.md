@@ -5,8 +5,8 @@ GroupDocs.Viewer for-Node.js-via-Java is a [Document Viewer API](https://product
 View PDF, DOC, PPT, ODT, OTT, ODP among [many other documents](https://docs.groupdocs.com/viewer/java/supported-document-formats/) in HTML5, PDF or image modes with fast and high quality rendering. You may also choose your own rendering strategy by processing the document page-by-page, entire document at once or a custom page range. API also provides the ability to customize document appearance via additional rendering options to add watermarks, rotate or reorder pages, extract document text and much more!
 
 <p align="center">
-  <a title="Download complete GroupDocs.Viewer for Java source code" href="https://github.com/groupdocs-viewer/GroupDocs.Viewer-for-Java/archive/master.zip"> 
-    <img src="https://camo.githubusercontent.com/11839cd752a2d367f3149c7bee1742b68e4a4d37/68747470733a2f2f7261772e6769746875622e636f6d2f4173706f73654578616d706c65732f6a6176612d6578616d706c65732d64617368626f6172642f6d61737465722f696d616765732f646f776e6c6f61645a69702d427574746f6e2d4c617267652e706e67" data-canonical-src="https://raw.github.com/AsposeExamples/java-examples-dashboard/master/images/downloadZip-Button-Large.png" style="max-width:100%;">
+  <a title="Download complete GroupDocs.Viewer for Node.js via Java source code" href="https://github.com/groupdocs-viewer/GroupDocs.Viewer-for-Java/archive/master.zip"> 
+    <img src="https://raw.github.com/AsposeExamples/java-examples-dashboard/master/images/downloadZip-Button-Large.png">
   </a>
 </p>
 
