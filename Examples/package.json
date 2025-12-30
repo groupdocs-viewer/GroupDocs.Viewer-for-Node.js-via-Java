@@ -1,0 +1,26 @@
+{
+  "name": "groupdocs.viewer",
+  "version": "25.12",
+  "description": "GroupDocs.Viewer for Node.js via Java code examples",
+  "type": "module",
+  "main": "run_all_examples.js",
+  "scripts": {
+    "start": "node run_all_examples.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@groupdocs/groupdocs.viewer": "25.12"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.2",
+    "@eslint/js": "^9.39.2",
+    "globals": "^15.14.0"
+  },
+  "keywords": [
+    "groupdocs",
+    "examples"
+  ],
+  "author": "GroupDocs",
+  "license": "MIT"
+}

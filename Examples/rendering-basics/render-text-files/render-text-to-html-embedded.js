@@ -1,0 +1,10 @@
+import { Viewer, HtmlViewOptions } from '@groupdocs/groupdocs.viewer';
+
+const viewer = new Viewer("TermsOfService.txt")
+// Convert the text file to HTML.
+// {0} is replaced with the current page number in the output file names.
+const viewOptions = HtmlViewOptions.forEmbeddedResources("render-text-to-html-embedded/txt-to-html-page_{0}.html")
+viewer.view(viewOptions)
+
+// Exit with a success code
+process.exit(0);
