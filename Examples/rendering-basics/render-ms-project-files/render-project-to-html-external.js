@@ -1,11 +1,11 @@
-import { Viewer, HtmlViewOptions } from '@groupdocs/groupdocs.viewer';
+import { Viewer, HtmlViewOptions } from '@groupdocs/groupdocs.viewer'
 
-const viewer = new Viewer("SoftwareDevelopmentPlan.mpp")
+const viewer = new Viewer('SoftwareDevelopmentPlan.mpp')
 // Render the project's active view as HTML.
 // Specify the HTML file names and location of external resources.
 // {0} and {1} are replaced with the page number and resource name, respectively.
-const viewOptions = HtmlViewOptions.forExternalResources("render-project-to-html-external/mpp-to-html-page_{0}.html", "render-project-to-html-external/mpp-to-html-page_{0}/resource_{0}_{1}", "render-project-to-html-external/mpp-to-html-page_{0}/resource_{0}_{1}")
+const viewOptions = HtmlViewOptions.forExternalResources('render-project-to-html-external/mpp-to-html-page_{0}.html', 'render-project-to-html-external/mpp-to-html-page_{0}/resource_{0}_{1}', 'render-project-to-html-external/mpp-to-html-page_{0}/resource_{0}_{1}')
 viewer.view(viewOptions)
 
 // Exit with a success code
-process.exit(0);
+process.exit(0)

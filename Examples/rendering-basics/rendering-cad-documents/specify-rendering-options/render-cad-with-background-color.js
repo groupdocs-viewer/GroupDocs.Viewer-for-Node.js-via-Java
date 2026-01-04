@@ -1,14 +1,14 @@
-import { Viewer, PdfViewOptions } from '@groupdocs/groupdocs.viewer';
-import java from 'java';
+import { Viewer, PdfViewOptions } from '@groupdocs/groupdocs.viewer'
+import java from 'java'
 
 const Color = java.import('java.awt.Color')
 
-const viewer = new Viewer("HousePlan.dwg")
+const viewer = new Viewer('HousePlan.dwg')
 // Convert the document to PDF.
-const viewOptions = PdfViewOptions("render-cad-with-background-color/dwg-to-pdf.pdf")
+const viewOptions = PdfViewOptions('render-cad-with-background-color/dwg-to-pdf.pdf')
 // Specify the background color.
 viewOptions.getCadOptions().setBackgroundColor(Color.YELLOW)
 viewer.view(viewOptions)
 
 // Exit with a success code
-process.exit(0);
+process.exit(0)

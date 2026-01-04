@@ -14,4 +14,4 @@ for (let i = 0; i < folders.size(); i++) {
 }
 
 // Exit with a success code
-process.exit(0);
+process.exit(0)

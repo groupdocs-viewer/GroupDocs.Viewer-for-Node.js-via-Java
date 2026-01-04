@@ -1,10 +1,10 @@
-import { Viewer } from '@groupdocs/groupdocs.viewer';
+import { Viewer } from '@groupdocs/groupdocs.viewer'
 
 try {
-  console.log('GroupDocs.Viewer loaded:', typeof Viewer === 'function');
-  console.log('Java bridge initialized successfully.');
-  process.exit(0);
+  console.log('GroupDocs.Viewer loaded:', typeof Viewer === 'function')
+  console.log('Java bridge initialized successfully.')
+  process.exit(0)
 } catch (e) {
-  console.error('Failed to load GroupDocs.Viewer:', e);
-  process.exit(1);
+  console.error('Failed to load GroupDocs.Viewer:', e)
+  process.exit(1)
 }

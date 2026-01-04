@@ -1,13 +1,13 @@
-import { Viewer, PngViewOptions } from '@groupdocs/groupdocs.viewer';
+import { Viewer, PngViewOptions } from '@groupdocs/groupdocs.viewer'
 
-const viewer = new Viewer("SoftwareDevelopmentPlan.mpp")
+const viewer = new Viewer('SoftwareDevelopmentPlan.mpp')
 // Render the project's active view as PNG.
 // {0} is replaced with the page numbers in the output image names.
-const viewOptions = PngViewOptions("render-project-to-png/mpp-to-png-page_{0}.png")
+const viewOptions = PngViewOptions('render-project-to-png/mpp-to-png-page_{0}.png')
 // Set width and height.
 viewOptions.setWidth(1600)
 viewOptions.setHeight(650)
 viewer.view(viewOptions)
 
 // Exit with a success code
-process.exit(0);
+process.exit(0)

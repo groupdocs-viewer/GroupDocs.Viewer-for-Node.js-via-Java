@@ -1,9 +1,9 @@
-import { Viewer, PdfViewOptions } from '@groupdocs/groupdocs.viewer';
+import { Viewer, PdfViewOptions } from '@groupdocs/groupdocs.viewer'
 
-const viewer = new Viewer("Products.numbers")
+const viewer = new Viewer('Products.numbers')
 // Convert the spreadsheet to PDF.
-const viewOptions = PdfViewOptions("render-apple-numbers-to-pdf/numbers-to-pdf.pdf")
+const viewOptions = PdfViewOptions('render-apple-numbers-to-pdf/numbers-to-pdf.pdf')
 viewer.view(viewOptions)
 
 // Exit with a success code
-process.exit(0);
+process.exit(0)

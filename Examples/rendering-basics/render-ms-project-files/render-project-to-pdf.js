@@ -1,9 +1,9 @@
-import { Viewer, PdfViewOptions } from '@groupdocs/groupdocs.viewer';
+import { Viewer, PdfViewOptions } from '@groupdocs/groupdocs.viewer'
 
-const viewer = new Viewer("SoftwareDevelopmentPlan.mpp")
+const viewer = new Viewer('SoftwareDevelopmentPlan.mpp')
 // Create a PDF file.
-const viewOptions = PdfViewOptions("render-project-to-pdf/mpp-to-pdf.pdf")
+const viewOptions = PdfViewOptions('render-project-to-pdf/mpp-to-pdf.pdf')
 viewer.view(viewOptions)
 
 // Exit with a success code
-process.exit(0);
+process.exit(0)

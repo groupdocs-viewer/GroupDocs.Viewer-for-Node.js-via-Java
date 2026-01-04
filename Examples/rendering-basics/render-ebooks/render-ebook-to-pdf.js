@@ -1,10 +1,10 @@
-import { Viewer, PdfViewOptions } from '@groupdocs/groupdocs.viewer';
+import { Viewer, PdfViewOptions } from '@groupdocs/groupdocs.viewer'
 
-const viewer = new Viewer("sample.epub")
+const viewer = new Viewer('sample.epub')
 // Create a PDF file for the document.
 // Specify the PDF file name.
-const viewOptions = PdfViewOptions("render-ebook-to-pdf/epub-to-pdf.pdf")
+const viewOptions = PdfViewOptions('render-ebook-to-pdf/epub-to-pdf.pdf')
 viewer.view(viewOptions)
 
 // Exit with a success code
-process.exit(0);
+process.exit(0)
