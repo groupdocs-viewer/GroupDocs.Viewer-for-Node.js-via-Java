@@ -1,8 +1,9 @@
 import { Viewer, PdfViewOptions } from '@groupdocs/groupdocs.viewer'
+import { outputPath } from '#output'
 
 const viewer = new Viewer('documents.zip')
 // Specify the PDF file name.
-const viewOptions = PdfViewOptions('render-archive-to-pdf/zip-to-pdf.pdf')
+const viewOptions = PdfViewOptions(outputPath('render-archive-to-pdf/zip-to-pdf.pdf'))
 viewer.view(viewOptions)
 
 // Exit with a success code

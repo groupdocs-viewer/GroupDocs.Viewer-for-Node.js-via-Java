@@ -1,8 +1,9 @@
 import { Viewer, HtmlViewOptions } from '@groupdocs/groupdocs.viewer'
+import { outputPath } from '#output'
 
 const viewer = new Viewer('sample.pst')
 // Specify the HTML file name.
-const viewOptions = HtmlViewOptions.forEmbeddedResources('render-pst-to-html/pst-to-html.html')
+const viewOptions = HtmlViewOptions.forEmbeddedResources(outputPath('render-pst-to-html/pst-to-html.html'))
 viewer.view(viewOptions)
 
 // Exit with a success code

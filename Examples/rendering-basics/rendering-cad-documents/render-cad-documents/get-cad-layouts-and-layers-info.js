@@ -1,4 +1,5 @@
 import { Viewer, ViewInfoOptions } from '@groupdocs/groupdocs.viewer'
+import '#license'
 
 const viewer = new Viewer('HousePlan.dwg')
 const viewOptions = ViewInfoOptions.forHtmlView()

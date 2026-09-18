@@ -1,8 +1,9 @@
 import { Viewer, PdfViewOptions } from '@groupdocs/groupdocs.viewer'
+import { outputPath } from '#output'
 
 const viewer = new Viewer('flowchart.vsdx')
 // Convert the Visio file to PDF.
-const viewOptions = PdfViewOptions('render-visio-shapes-only/vsdx-to-pdf.pdf')
+const viewOptions = PdfViewOptions(outputPath('render-visio-shapes-only/vsdx-to-pdf.pdf'))
 // Render the master shapes only.
 viewOptions.getVisioRenderingOptions().setRenderFiguresOnly(true)
 // Specify shape width in pixels.

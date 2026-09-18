@@ -1,8 +1,9 @@
 import { Viewer, HtmlViewOptions } from '@groupdocs/groupdocs.viewer'
+import { outputPath } from '#output'
 
 const viewer = new Viewer('Personal_net_worth_calculator.xlsx')
 // Convert all Excel worksheets to one HTML file.
-const viewOptions = HtmlViewOptions.forEmbeddedResources('render-excel-all-worksheets-to-single-html/xlsx-to-html.html')
+const viewOptions = HtmlViewOptions.forEmbeddedResources(outputPath('render-excel-all-worksheets-to-single-html/xlsx-to-html.html'))
 // Enable converting all worksheets to one file.
 viewOptions.setRenderToSinglePage(true)
 viewer.view(viewOptions)

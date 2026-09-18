@@ -1,11 +1,13 @@
 import { Viewer, HtmlViewOptions } from '@groupdocs/groupdocs.viewer'
+import { outputPath } from '#output'
+
 import java from 'java'
 
 const timeOffset = java.import('java.util.TimeZone').getTimeZone('GMT+1')
 
 const viewer = new Viewer('sample.eml')
 // Create an HTML file
-const viewOptions = HtmlViewOptions.forEmbeddedResources('render-email-datetime-format/eml-to-html.html')
+const viewOptions = HtmlViewOptions.forEmbeddedResources(outputPath('render-email-datetime-format/eml-to-html.html'))
 // Apply a custom format to the date in the email message header.
 viewOptions.getEmailOptions().setDateTimeFormat('MM d yyyy HH:mm tt zzz')
 // Specify the time zone offset. 

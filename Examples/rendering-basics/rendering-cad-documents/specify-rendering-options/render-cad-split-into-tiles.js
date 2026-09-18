@@ -1,4 +1,5 @@
 import { Viewer, HtmlViewOptions, ViewInfoOptions, Tile } from '@groupdocs/groupdocs.viewer'
+import { outputPath } from '#output'
 
 const viewer = new Viewer('HousePlan.dwg')
 
@@ -18,7 +19,7 @@ let pointY = 0
 
 // Split the drawing into tiles and convert them to HTML.
 // {0} is replaced with the tile number in the output file name.
-const viewOptions = HtmlViewOptions.forEmbeddedResources('render-cad-split-into-tiles/dwg-to-html-page_{0}.html')
+const viewOptions = HtmlViewOptions.forEmbeddedResources(outputPath('render-cad-split-into-tiles/dwg-to-html-page_{0}.html'))
 
 let tile = new Tile(pointX, pointY, tileWidth, tileHeight)
 viewOptions.getCadOptions().getTiles().add(tile)

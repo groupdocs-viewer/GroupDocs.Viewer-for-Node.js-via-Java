@@ -1,13 +1,10 @@
 import { Viewer, HtmlViewOptions } from '@groupdocs/groupdocs.viewer'
+import { outputPath } from '#output'
 
-// Path to the file you want to render
 const filePath = 'sample.pdf'
-
-// Initialize viewer
 const viewer = new Viewer(filePath)
 
-// Render the file to HTML
-viewer.view(HtmlViewOptions.forEmbeddedResources())
+// Render the PDF to HTML. {0} is replaced with the page number.
+viewer.view(HtmlViewOptions.forEmbeddedResources(outputPath('render-pdf-to-html/page_{0}.html')))
 
-// Exit with a success code
 process.exit(0)

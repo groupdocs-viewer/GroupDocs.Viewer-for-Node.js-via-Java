@@ -1,4 +1,5 @@
 import { Viewer, ViewInfoOptions } from '@groupdocs/groupdocs.viewer'
+import '#license'
 
 const viewer = new Viewer('resume.pdf')
 // Get file information.

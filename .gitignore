@@ -120,3 +120,9 @@ build/
 *.min.js
 *.min.css
 
+# Example render outputs
+Examples/output/
+
+# Local install workarounds (VS 2026 / missing JAR)
+Examples/scripts/
+

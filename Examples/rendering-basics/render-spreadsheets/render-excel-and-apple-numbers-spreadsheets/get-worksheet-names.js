@@ -1,4 +1,5 @@
 import { Viewer, ViewInfoOptions, SpreadsheetOptions } from '@groupdocs/groupdocs.viewer'
+import '#license'
 
 const viewer = new Viewer('sample.xlsx')
 const viewInfoOptions = ViewInfoOptions.forHtmlView()

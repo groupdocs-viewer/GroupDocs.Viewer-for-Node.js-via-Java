@@ -1,78 +1,48 @@
-import { fileURLToPath } from 'url'
+import { fileURLToPath, pathToFileURL } from 'url'
 import { dirname, join } from 'path'
 import { execSync } from 'child_process'
-import { existsSync } from 'fs'
+import { existsSync, readdirSync, mkdirSync } from 'fs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
+const licenseDir = join(__dirname, 'license')
+const applyLicenseModule = pathToFileURL(join(__dirname, 'utils', 'apply-license.js')).href
 
-// Set license path (update this path to your license file location)
-// process.env.GROUPDOCS_LICENSE_PATH = './GroupDocs.Viewer.lic';
-
-// Console output colors
+// Console colors
 const YELLOW = '\x1b[93m'
 const GREEN = '\x1b[92m'
 const RED = '\x1b[91m'
 const RESET = '\x1b[0m'
 
 function printIntro() {
-  const introText = `
+  console.log(`
 =================================================================
-Welcome to the GroupDocs.Viewer for Node.js via Java Examples!
+GroupDocs.Viewer for Node.js via Java Examples
 =================================================================
-
-This script will run a series of examples showcasing the features of GroupDocs.Viewer for Node.js via Java.
-Each example demonstrates different use cases and functionalities such as:
-
-- Rendering documents to HTML, PDF, PNG, JPEG.
-- Retrieving document information.
-- Handling password-protected files.
-- Working with file containers and archives.
-- Setting and managing licenses.
-
-Enjoy exploring the GroupDocs API! 
-
-=======================================================
-`
-  console.log(introText)
+Runs sample scripts for rendering documents to HTML, PDF, PNG, and JPEG.
+Put a .lic file into the license folder to disable evaluation mode.
+=================================================================
+`)
 }
 
-async function setLicense() {
-  /** Set the GroupDocs license from environment variable or license file. */
-  try {
-    const { License } = await import('@groupdocs/groupdocs.viewer')
-        
-    // First, check for license path in environment variable
-    let licensePath = process.env.GROUPDOCS_LICENSE_PATH
-        
-    // If not found, look for .lic files in current directory
-    if (!licensePath) {
-      const fs = await import('fs')
-      const files = fs.readdirSync(__dirname)
-      const licFile = files.find(f => f.endsWith('.lic'))
-      if (licFile) {
-        licensePath = join(__dirname, licFile)
-      }
-    }
-        
-    // Set license if found
-    if (licensePath && existsSync(licensePath)) {
-      const license = new License()
-      license.setLicense(licensePath)
-      console.log(`${GREEN}License set from: ${licensePath}${RESET}\n`)
-    } else {
-      console.log(`${YELLOW}No license file found. Running in evaluation mode.${RESET}\n`)
-    }
-  } catch (e) {
-    console.log(`${YELLOW}Could not set license: ${e.message}${RESET}\n`)
+function resolveLicensePath() {
+  mkdirSync(licenseDir, { recursive: true })
+  const licFile = readdirSync(licenseDir).find(f => f.toLowerCase().endsWith('.lic'))
+  return licFile ? join(licenseDir, licFile) : null
+}
+
+function printLicenseStatus() {
+  const licensePath = resolveLicensePath()
+  if (licensePath && existsSync(licensePath)) {
+    console.log(`${GREEN}License found: ${licensePath}${RESET}\n`)
+  } else {
+    console.log(`${YELLOW}No .lic file in ${licenseDir}. Running in evaluation mode.${RESET}\n`)
   }
 }
 
 const examples = [
   'getting-started/installation/check-installation.js',
   'getting-started/installation/render-pdf-to-html.js',
-  'getting-started/licensing/set-license-from-file.js',
-  'getting-started/licensing/set-license-from-stream.js',
   'rendering-basics/render-spreadsheets/render-excel-and-apple-numbers-spreadsheets/render-excel-to-html-embedded.js',
   'rendering-basics/render-spreadsheets/render-excel-and-apple-numbers-spreadsheets/render-apple-numbers-to-html-embedded.js',
   'rendering-basics/render-spreadsheets/render-excel-and-apple-numbers-spreadsheets/render-excel-to-html-external.js',
@@ -84,6 +54,7 @@ const examples = [
   'rendering-basics/render-spreadsheets/render-excel-and-apple-numbers-spreadsheets/render-apple-numbers-to-png.js',
   'rendering-basics/render-spreadsheets/render-excel-and-apple-numbers-spreadsheets/render-excel-to-jpeg.js',
   'rendering-basics/render-spreadsheets/render-excel-and-apple-numbers-spreadsheets/render-apple-numbers-to-jpeg.js',
+  'rendering-basics/render-spreadsheets/render-excel-and-apple-numbers-spreadsheets/render-excel-with-resolution.js',
   'rendering-basics/render-spreadsheets/render-excel-and-apple-numbers-spreadsheets/detect-csv-separator.js',
   'rendering-basics/render-spreadsheets/render-excel-and-apple-numbers-spreadsheets/get-worksheet-names.js',
   'rendering-basics/render-word-documents/render-word-to-html-embedded-resources.js',
@@ -94,6 +65,8 @@ const examples = [
   'rendering-basics/render-word-documents/render-word-with-page-margins.js',
   'rendering-basics/render-word-documents/render-word-with-tracked-changes.js',
   'rendering-basics/render-word-documents/render-word-with-comments.js',
+  'rendering-basics/render-word-documents/render-word-with-page-numbers.js',
+  'rendering-basics/render-word-documents/render-word-with-resolution.js',
   'rendering-basics/render-pdf-documents/render-pdf-to-html-embedded.js',
   'rendering-basics/render-pdf-documents/render-pdf-to-html-external.js',
   'rendering-basics/render-pdf-documents/render-pdf-with-image-quality.js',
@@ -105,6 +78,7 @@ const examples = [
   'rendering-basics/render-pdf-documents/render-pdf-enable-font-hinting.js',
   'rendering-basics/render-pdf-documents/render-pdf-disable-chars-grouping.js',
   'rendering-basics/render-pdf-documents/render-pdf-with-comments.js',
+  'rendering-basics/render-pdf-documents/render-pdf-with-notes.js',
   'rendering-basics/render-pdf-documents/get-pdf-file-information.js',
   'rendering-basics/render-pdf-documents/extract-text-from-pdf.js',
   'rendering-basics/render-presentations/render-presentation-to-html-embedded.js',
@@ -157,6 +131,7 @@ const examples = [
   'rendering-basics/render-email-messages/render-email-with-page-size.js',
   'rendering-basics/render-email-messages/render-email-rename-fields.js',
   'rendering-basics/render-email-messages/render-email-datetime-format.js',
+  'rendering-basics/render-email-messages/get-mail-message-info.js',
   'rendering-basics/render-outlook-data-files/render-pst-to-html.js',
   'rendering-basics/render-outlook-data-files/render-pst-to-pdf.js',
   'rendering-basics/render-outlook-data-files/render-pst-to-png.js',
@@ -196,22 +171,20 @@ const examples = [
 ]
 
 printIntro()
-await setLicense()
+printLicenseStatus()
 
-// Track example execution results
 let totalExamples = examples.length
 let successfulExamples = 0
 let failedExamples = 0
 
-// Run each example script
 for (const example of examples) {
   const examplePath = join(__dirname, example)
   const exampleDir = dirname(examplePath)
 
   console.log(`${YELLOW}Running ${example}...${RESET}`)
   try {
-    // Execute the example script
-    execSync(`node ${examplePath}`, {
+    // License must be set in the same process as the example.
+    execSync(`node --import ${JSON.stringify(applyLicenseModule)} ${JSON.stringify(examplePath)}`, {
       cwd: exampleDir,
       stdio: 'inherit',
       env: process.env
@@ -224,7 +197,6 @@ for (const example of examples) {
   }
 }
 
-// Print summary
 console.log('=================================================================')
 console.log(`${GREEN}Summary:${RESET}`)
 console.log(`  Total examples: ${totalExamples}`)
@@ -235,9 +207,6 @@ if (failedExamples > 0) {
   console.log(`  Failed: ${GREEN}${failedExamples}${RESET}`)
 }
 console.log('=================================================================')
+console.log(`${GREEN}Done${RESET}`)
 
-// Print completion message
-console.log(`${GREEN}All examples completed${RESET}`)
-
-// Exit with a success code
 process.exit(0)

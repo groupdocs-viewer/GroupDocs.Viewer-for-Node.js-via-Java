@@ -1,4 +1,5 @@
 import { Viewer } from '@groupdocs/groupdocs.viewer'
+import '#license'
 
 const viewer = new Viewer('with_attachments.msg')
 const attachments = viewer.getAttachments()

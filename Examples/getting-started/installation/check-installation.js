@@ -1,4 +1,5 @@
 import { Viewer } from '@groupdocs/groupdocs.viewer'
+import '#license'
 
 try {
   console.log('GroupDocs.Viewer loaded:', typeof Viewer === 'function')

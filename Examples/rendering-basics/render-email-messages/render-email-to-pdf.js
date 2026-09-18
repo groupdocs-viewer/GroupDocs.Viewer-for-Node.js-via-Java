@@ -1,8 +1,9 @@
 import { Viewer, PdfViewOptions } from '@groupdocs/groupdocs.viewer'
+import { outputPath } from '#output'
 
 const viewer = new Viewer('sample.eml')
 // Create a PDF file for the letter.
-const viewOptions = PdfViewOptions('render-email-to-pdf/eml-to-pdf.pdf')
+const viewOptions = PdfViewOptions(outputPath('render-email-to-pdf/eml-to-pdf.pdf'))
 viewer.view(viewOptions)
 
 // Exit with a success code

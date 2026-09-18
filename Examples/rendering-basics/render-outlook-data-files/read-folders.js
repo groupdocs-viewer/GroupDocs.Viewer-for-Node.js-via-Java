@@ -1,4 +1,5 @@
 import { Viewer, ViewInfoOptions } from '@groupdocs/groupdocs.viewer'
+import '#license'
 
 function readFolders(viewer, viewInfoOptions, folder) {
   viewInfoOptions.getOutlookOptions().setFolder(folder)
