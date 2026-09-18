@@ -20,8 +20,16 @@ COPY . .
 # Final stage – slim runtime image
 FROM node:20-bookworm-slim AS final
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+# MS core fonts live in contrib; needed for Office/Project rendering (Aspose fallback fonts)
+RUN sed -i 's/^Components: main$/& contrib/' /etc/apt/sources.list.d/debian.sources \
+    && echo "ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true" | debconf-set-selections \
+    && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     openjdk-17-jre-headless \
+    fontconfig \
+    fonts-dejavu-core \
+    fonts-liberation \
+    ttf-mscorefonts-installer \
+    && fc-cache -f \
     && rm -rf /var/lib/apt/lists/*
 
 ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
