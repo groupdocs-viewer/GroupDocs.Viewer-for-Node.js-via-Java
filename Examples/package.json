@@ -10,8 +10,6 @@
   },
   "scripts": {
     "start": "node run_all_examples.js",
-    "postinstall": "node scripts/rebuild-java.js && node scripts/ensure-viewer-jar.js",
-    "rebuild:java": "node scripts/rebuild-java.js",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
